@@ -1,0 +1,230 @@
+html {
+    background: black;
+    color: white;
+    padding: 0%;
+    text-align: center;
+    border-radius: 93px;
+    /* Default font size */
+     font-size: calc(1em + 0.6vw);
+    //font-size: calc(1em + 1vw);
+}
+    /* Fluid font size for PCs */
+    @media screen and (min-width: 601px) {
+  font-size: 3vw; /* Adjust the font size for PCs */
+}
+    /* Fluid font size for phones */
+    @media screen and (max-width: 100%) {
+  font-size: 8vw; /* Adjust the font size for phones */
+}
+
+.head {
+    color: lime;
+}
+
+body {
+    padding: 0%;
+    overflow-y: hidden; /* Hide vertical scrollbar */
+    overflow-x: hidden; /* Hide horizontal scrollbar */
+    border-radius: 96px;
+    overflow: scroll;
+}
+/* Hide scrollbar for Chrome, Safari and Opera */
+.wrap::-webkit-scrollbar {
+    display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.wrap {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+
+/* unvisited link */
+a:link {
+    color: rgba(101, 221, 151, 0.469);
+}
+
+/* visited link */
+a:visited {
+    color: rgb(5, 52, 5);
+}
+
+/* mouse over link */
+a:hover {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 123%;
+    background-color: black;
+    border-radius: 69px;
+    border: 2px outset #ff0234
+}
+
+/* selected link */
+a:active {
+    color: rgb(109, 46, 46);
+    background-color: darkgreen;
+}
+
+.div {
+    background: #000;
+    min-width: 99%;
+    max-width: 99%;
+    padding: 1%;
+    text-align: center;
+    border-radius: 96px;
+}
+
+.wrapper {
+    text-align: center;
+    background: #113311;
+    display: flex; /* Changed from 'grid' to 'flex' */
+    border-radius: 96px;
+    padding: 1%; /* Consolidated padding properties */
+    min-width: 33%;
+}
+.blk {
+    margin: 0 auto;
+    background: #000;
+    padding: 1%;
+    text-align: center;
+    border-style: dotted dashed solid double;
+    border-radius: 96px;
+    border-bottom: 4px inset green;
+    border-right: 4px inset green;
+    border-left: 4px outset green;
+    max-width: 99%;
+}
+.scrollable-content {
+    margin: 0 auto;
+    background: #000;
+    padding: 1%;
+    text-align: center;
+    border-style: dotted dashed solid double;
+    border-radius: 96px;
+    border-bottom: 4px inset green;
+    border-right: 4px inset green;
+    border-left: 4px outset green;
+    max-width: 99%;
+    overflow-y: auto; /* Enable vertical scrolling */
+}
+
+.blk h1 {
+    font-size: 10%;
+    font-weight: bold;
+    margin-top: 0;
+}
+
+.blk p {
+    margin-bottom: 1%;
+}
+
+.blk a {
+    color: #8f8610;
+}
+
+.blk a:hover {
+    text-decoration: underline;
+    background-color: #071001;
+}
+
+.blk blockquote {
+    margin: 0;
+    padding: 5% 5% 5%;
+    border-left: 5px dotted #de9700;
+    border-right: 5px dotted #de9700;
+    border-radius: 96px;
+}
+
+.blk blockquote p {
+    margin-bottom: 0;
+}
+.image-container {
+    width: 360px; /* Set the width and height of the circular container */
+    height: 360px;
+    overflow: hidden; /* Hide overflow content if the image is larger than the container */
+    border-radius: 50%; /* Make the container circular */
+    border: 3px solid #FF5F1F; /* Add a border */
+    margin: 0 auto; /* Center-align the container */
+    position: relative; /* Add position relative */
+}
+.image-container img {
+    position: absolute; /* Position the images absolutely */
+    top: 0;
+    left: 0;
+    width: 100%; /* Set images to take up full width */
+    height: auto; /* Maintain aspect ratio */
+}
+.profile_frame {
+    position: relative;
+    width: 100%; /* Ensure the frame takes up full width */
+    height: 100%; /* Ensure the frame takes up full height */
+}
+.profile_avatar_frame {
+    position: absolute; /* Position the avatar frame */
+    top: 50%; /* Align vertically in the middle */
+    left: 50%; /* Align horizontally in the middle */
+    transform: translate(-50%, -50%); /* Center the avatar frame */
+}
+.profile_image {
+    width: 100%; /* Set width to 100% to fit within the container */
+    height: auto; /* Let the height adjust proportionally */
+    display: block;
+}
+
+.border_image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Set width to 100% to fit within the container */
+    height: auto; /* Let the height adjust proportionally */
+    z-index: 1; /* Set a higher z-index to ensure the border image is in front */
+}
+
+.em {
+    padding-left: 2%;
+    padding-right: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    border-style: double dashed none double;
+    border-radius: 96px;
+    border: 1px inset lime;
+    min-width: 99%;
+    max-width: 99%;
+}
+
+.p {
+    text-align: center;
+    font-size: 96%;
+    padding: 3%;
+    border-radius: 96px;
+    border: 1px dotted lime;
+}
+p.blk {
+    color: white;
+    font-size: 150%;
+    overflow: auto;
+    border-radius: 96px;
+}
+.marquee-container {
+    width: 100%;
+    font-size: 250%;
+    overflow: hidden;
+    background-color: #000000;
+    color: #fff;
+}
+.marquee {
+    border-radius: 96px;
+    border-left: 6px dotted lime;
+    border-right: 6px dotted lime;
+    display: inline-block;
+    white-space: nowrap;
+    animation: marquee 23s linear infinite;
+}
+@keyframes marquee {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(100%);
+    }
+}
