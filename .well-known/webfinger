@@ -1,0 +1,13 @@
+{
+  "subject": "acct:tek@aevl.us",
+  "aliases": [
+    "https://tek.aevl.us"
+  ],
+  "links": [
+    {
+      "rel": "self",
+      "type": "application/activity+json",
+      "href": "https://tek.aevl.us"
+    }
+  ]
+}
