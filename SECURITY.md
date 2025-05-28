@@ -6,5 +6,5 @@ We support the latest stable release, as well as the current state of the `next-
 
 ## Reporting a Vulnerability
 
-Found a security issue? Please disclose it responsibly. We have a team of developers listening to [security@aevl.us](mailto:security@aevl.us). (https://git.aevl.net/Tek/tek.aevl.us).
+Found a security issue? Please disclose it responsibly. We have a team of developers listening to [security@aevl.us](mailto:security@aevl.us). (https://www.aevl.us/).
 
