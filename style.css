@@ -214,6 +214,7 @@ p.blk {
 }
 .marquee {
 background: linear-gradient(90deg, darkred, orange, white, green, gold, blue, violet, darkred);
+background-attachment: fixed;
     border-radius: 96px;
     border-left: 6px dotted lime;
     border-right: 6px dotted lime;
