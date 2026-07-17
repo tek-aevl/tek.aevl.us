@@ -6,14 +6,14 @@ html {
     border-radius: 93px;
     /* Default font size */
      font-size: calc(1em + 0.6vw);
-    //font-size: calc(1em + 1vw);
+    /*font-size: calc(1em + 1vw);*/
 }
     /* Fluid font size for PCs */
     @media screen and (min-width: 601px) {
   font-size: 3vw; /* Adjust the font size for PCs */
 }
     /* Fluid font size for phones */
-    @media screen and (max-width: 100%) {
+    @media screen and (max-width: 640px) {
   font-size: 8vw; /* Adjust the font size for phones */
 }
 
@@ -139,13 +139,15 @@ a:active {
     margin-bottom: 0;
 }
 .image-container {
-    width: 360px; /* Set the width and height of the circular container */
-    height: 360px;
-    overflow: hidden; /* Hide overflow content if the image is larger than the container */
-    border-radius: 50%; /* Make the container circular */
-    border: 3px solid #FF5F1F; /* Add a border */
-    margin: 0 auto; /* Center-align the container */
-    position: relative; /* Add position relative */
+    width: 100%; 
+    max-width: 360px; /* Won't get larger than this */
+    aspect-ratio: 1 / 1; /* Keeps it a perfect square/circle */
+    height: auto; 
+    overflow: hidden; 
+    border-radius: 50%; 
+    border: 3px solid #FF5F1F; 
+    margin: 0 auto; 
+    position: relative;
 }
 .image-container img {
     position: absolute; /* Position the images absolutely */
@@ -211,6 +213,20 @@ p.blk {
     overflow: hidden;
     background-color: #000000;
     color: #fff;
+}
+/* Makes the YouTube video responsive */
+.blk iframe {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    aspect-ratio: 16 / 9;
+    box-sizing: border-box;
+}
+
+/* Forces elements inside blocks to respect screen boundaries */
+.wrapper, .blk, center, .image-container video, .image-container img {
+    max-width: 100%;
+    box-sizing: border-box;
 }
 .marquee {
 background: linear-gradient(90deg, darkred, orange, black, blue, darkred, black, gold, green, limegreen);
