@@ -138,18 +138,14 @@ a:active {
 .blk blockquote p {
     margin-bottom: 0;
 }
-.image-container {
-    width: 100%; /* Tells it to take up as much space as it can on a phone */
-    max-width: 500px; /* The maximum size on a PC (increase this if you want them even bigger!) */
-    aspect-ratio: 1 / 1; /* Keeps it a perfect circle at any size */
-    height: auto; /* Allows the height to grow with the width */
-    
-    /* Your original styles */
-    overflow: hidden; 
-    border-radius: 50%; 
-    border: 3px solid #FF5F1F; 
-    margin: 0 auto; 
-    position: relative; 
+ .image-container {
+    width: 360px; /* Set the width and height of the circular container */
+    height: 360px;
+    overflow: hidden; /* Hide overflow content if the image is larger than the container */
+    border-radius: 50%; /* Make the container circular */
+    border: 3px solid #FF5F1F; /* Add a border */
+    margin: 0 auto; /* Center-align the container */
+    position: relative; /* Add position relative */
 }
 .image-container img {
     position: absolute; /* Position the images absolutely */
@@ -157,7 +153,7 @@ a:active {
     left: 0;
     width: 100%; /* Set images to take up full width */
     height: auto; /* Maintain aspect ratio */
-}
+} 
 .profile_frame {
     position: relative;
     width: 100%; /* Ensure the frame takes up full width */
