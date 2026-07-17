@@ -220,7 +220,7 @@ background-attachment: fixed;
     border-right: 6px dotted lime;
     display: inline-block;
     white-space: nowrap;
-    animation: marquee 23s linear infinite;
+    animation: marquee 28s linear infinite;
 }
 @keyframes marquee {
     from {
