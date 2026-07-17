@@ -208,10 +208,10 @@ p.blk {
     border-radius: 96px;
 }
 /* Keeps the YouTube video and large images inside their borders */
-.blk iframe, 
-.blk img {
+.blk iframe {
     max-width: 100%;
     height: auto;
+    aspect-ratio: 16 / 9;
     box-sizing: border-box;
 }
 
