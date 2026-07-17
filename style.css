@@ -139,15 +139,17 @@ a:active {
     margin-bottom: 0;
 }
 .image-container {
-    width: 100%; 
-    max-width: 360px; /* Won't get larger than this */
-    aspect-ratio: 1 / 1; /* Keeps it a perfect square/circle */
-    height: auto; 
+    width: 100%; /* Tells it to take up as much space as it can on a phone */
+    max-width: 500px; /* The maximum size on a PC (increase this if you want them even bigger!) */
+    aspect-ratio: 1 / 1; /* Keeps it a perfect circle at any size */
+    height: auto; /* Allows the height to grow with the width */
+    
+    /* Your original styles */
     overflow: hidden; 
     border-radius: 50%; 
     border: 3px solid #FF5F1F; 
     margin: 0 auto; 
-    position: relative;
+    position: relative; 
 }
 .image-container img {
     position: absolute; /* Position the images absolutely */
