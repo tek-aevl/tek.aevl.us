@@ -207,26 +207,24 @@ p.blk {
     overflow: auto;
     border-radius: 96px;
 }
+/* Keeps the YouTube video and large images inside their borders */
+.blk iframe, 
+.blk img {
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+}
+
+/* Keeps the perfect 16:9 widescreen shape for the video */
+.blk iframe {
+    aspect-ratio: 16 / 9;
+}
 .marquee-container {
     width: 100%;
     font-size: 250%;
     overflow: hidden;
     background-color: #000000;
     color: #fff;
-}
-/* Makes the YouTube video responsive */
-.blk iframe {
-    width: 100%;
-    max-width: 800px;
-    height: auto;
-    aspect-ratio: 16 / 9;
-    box-sizing: border-box;
-}
-
-/* Forces elements inside blocks to respect screen boundaries */
-.wrapper, .blk, center, .image-container video, .image-container img {
-    max-width: 100%;
-    box-sizing: border-box;
 }
 .marquee {
 background: linear-gradient(90deg, darkred, orange, black, blue, darkred, black, gold, green, limegreen);
