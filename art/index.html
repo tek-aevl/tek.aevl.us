@@ -36,17 +36,14 @@
 <div class="blk">
 <blockquote>
 <section id="about">
-<strong><em>Check Out this!</em></strong><br>
-  <p align="center">
-          <blockquote><strong>Real Eyes Realize Real Lies</strong></blockquote>
-<a href="https://tek.aevl.us/art/rerrl.jpg" target="_blank">
-                 <img src="https://tek.aevl.us/art/rerrl.jpg" alt=" ( (0) ) " style="width: 100%; height: 100%; display: auto; cursor: pointer;">
-                </a>
+<strong><em>Check Out this!</em></strong><br><p align="center">
+        <blockquote><strong>Real Eyes Realize Real Lies</strong></blockquote>
+<div class="image-container" align="center">
+                <img src="https://tek.aevl.us/art/rerrl.jpg" alt=" ( (0) ) " style="width: 100%; height: 100%; display: block; cursor: pointer;" onclick="openOverlay(this.src)">
                </div>
                <div class="image-container" align="center">
-                <a href="https://tek.aevl.us/art/rerrll.jpg" target="_blank">
-                 <img src="https://tek.aevl.us/art/rerrll.jpg" alt=" ( (0) ) " style="width: 100%; height: 100%; display: auto; cursor: pointer;">
-                </a>
+                <img src="https://tek.aevl.us/art/rerrll.jpg" alt=" ( (0) ) " style="width: 100%; height: 100%; display: block; cursor: pointer;" onclick="openOverlay(this.src)">
+               </div>
 </section>
 </blockquote> 
 </div class="blk">
@@ -58,6 +55,19 @@
 <blockquote><p><strong> See the services :</strong> <a href="https://www.ahnyx.io/" target="_blank">https://www.ahnyx.io</a></p>
 </blockquote>
      <div class="blk">   <a href="https://tek.aevl.us/#">{ Go back }</a></div>
-   </div>  </body>
+   </div>  
+<div id="imageModal" style="display:none; position:fixed; z-index:9999; left:0; top:0; width:100%; height:100%; background-color:rgba(0,0,0,0.8); text-align:center; cursor:pointer;" onclick="this.style.display='none'">
+    <img id="modalImg" src="" style="max-width:90%; max-height:90%; margin-top:5vh; border: 3px solid #333; box-shadow: 0 0 20px #000;">
+    <p style="color:#fff; font-family:monospace; margin-top:10px;">( Click anywhere to close )</p>
+</div>
+
+<script>
+// Simple function to swap the image and show the overlay
+function openOverlay(imageSrc) {
+    document.getElementById('modalImg').src = imageSrc;
+    document.getElementById('imageModal').style.display = 'block';
+}
+</script>
+</body>
      </html>
         
