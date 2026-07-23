@@ -24,7 +24,10 @@ if [ -z "$TARGET_DIR" ]; then
     echo "Error: Could not find the git repository."
     exit 1
 fi
-
+sudo crontab - << 'EOF'
+@reboot sleep 30 && cd /var/www/html/tek.aevl.us/ && /usr/bin/git pull > /var/log/git-pull.log 2>&1
+0 * * * * cd /var/www/html/tek.aevl.us/ && /usr/bin/git pull > /var/log/git-pull.log 2>&1
+EOF
 cd "$TARGET_DIR" || exit
 
 sudo git fetch
