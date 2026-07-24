@@ -52,9 +52,34 @@
 <p><a href="https://steamcommunity.com/groups/aEvlSaurUs" target="_blank">aEvlSaurUs Steam Community </a></p>
    <a href="https://www.youtube.com/user/pehden/videos" target="_blank"><em>All of my game streams</em><div class="blk"><p> YouTube </p></div></a>
 
-        <!-- YOUTUBE EMBED STARTS HERE -->
+        
+<!-- YOUTUBE EMBED STARTS HERE -->
         <div class="blk">
             <p><em>All of my game streams</em></p>
+            
+            <!-- This style block forces the iframe to be fluid and responsive -->
+            <style>
+                .video-wrapper {
+                    position: relative;
+                    padding-bottom: 56.25%; /* Forces a 16:9 aspect ratio */
+                    height: 0;
+                    width: 100%; 
+                    max-width: 800px; /* Adjust this if you want it wider/narrower */
+                    margin: 20px auto; /* Centers the video */
+                    border: 2px solid #333; /* Matches your site aesthetic */
+                    border-radius: 8px; /* Optional: smooth corners */
+                    overflow: hidden;
+                }
+                .video-wrapper iframe {
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    height: 100%;
+                    border: none;
+                }
+            </style>
+
             <div class="video-wrapper">
                 <iframe src="https://www.youtube-nocookie.com/embed/v_0rkqD9ogc?list=PLPJdC1RtFzTg" 
                         title="YouTube video player" 
@@ -67,6 +92,7 @@
         </div>
         <!-- YOUTUBE EMBED ENDS HERE -->
 
+        
 </section>
 </blockquote> 
 </div class="blk">
