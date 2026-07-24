@@ -241,3 +241,22 @@ background: linear-gradient(90deg, darkred, orange, black, blue, darkred, black,
         transform: translateX(100%);
     }
 }
+
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* Forces a 16:9 aspect ratio */
+    height: 0;
+    overflow: hidden;
+    margin: 20px 0;
+    border: 2px solid #333; /* Optional: matches your site's dark aesthetic */
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
