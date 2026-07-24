@@ -10,6 +10,16 @@
 <link rel="icon" href="https://tek.aevl.us/logo.jpg" />
 <link rel="apple-touch-icon" href="https://tek.aevl.us/logo.jpg" />
 <link rel="stylesheet" type="text/css" href="https://tek.aevl.us/style.css">
+<!-- FORCES THE CONTAINERS TO EXPAND -->
+<style>
+    .wrapper {
+        width: 100% !important;
+        max-width: 98vw !important; /* Stretches the main wrapper across the screen */
+    }
+    .wrapper > .blk {
+        flex: 1 1 auto !important; /* Tells the boxes to stretch out and fill the empty space */
+    }
+</style>
 <!--<meta http-equiv="Cache-Control" content="max-age=86400">
 <!--cache for 1 day -->
 </div class="head">
