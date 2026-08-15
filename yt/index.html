@@ -72,17 +72,42 @@
             width: 100%;
             height: 100%;
             border: none;
+            background: #000;
         }
     </style>
 
     <div class="video-wrapper">
-        <iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCjROy_mLDRADRNTm6cxSMmg" 
+        <iframe id="latest-video-iframe" 
+                src="" 
                 title="YouTube video player" 
                 referrerpolicy="strict-origin-when-cross-origin" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
                 allowfullscreen>
         </iframe>
     </div>
+
+    <script>
+        // Generate a live timestamp to completely bust the cache
+        const cacheBuster = new Date().getTime();
+        const channelId = "UCjROy_mLDRADRNTm6cxSMmg";
+        
+        // Append timestamp to YouTube RSS URL to force a fresh pull
+        const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&_=${cacheBuster}`);
+        
+        // Use a raw CORS proxy to read the XML natively
+        const proxyUrl = `https://api.allorigins.win/raw?url=${rssUrl}`;
+
+        // Fetch with no-store to prevent the browser from caching the request
+        fetch(proxyUrl, { cache: "no-store" })
+            .then(response => response.text())
+            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
+            .then(data => {
+                // Dig into the XML and pull the absolute latest video ID
+                const videoId = data.getElementsByTagName("yt:videoId")[0].textContent;
+                document.getElementById('latest-video-iframe').src = `https://www.youtube-nocookie.com/embed/${videoId}`;
+            })
+            .catch(error => console.error('Error fetching fresh feed:', error));
+    </script>
 
     <p><a href="https://www.youtube.com/channel/UCjROy_mLDRADRNTm6cxSMmg" target="_blank">{ View on YouTube }</a></p>
 </div>
