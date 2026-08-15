@@ -42,14 +42,11 @@
         <h2>George Carlin</h2>
         <h3>Its A BIG Club</h3>
         
-        <!-- Self-Hosted Video Player -->
-        <iframe 
-            width="95%" 
-            height="450"
-            src="https://video.aevl.us/w/2b6cc087817427e5023156ffd7e94359"
-            frameborder="0" 
-            allowfullscreen>
-        </iframe>
+        <!-- Native Video Player (Bypasses iframe security blocks) -->
+        <video width="95%" controls preload="metadata" style="max-height: 450px; background-color: #000;">
+            <source src="https://video.aevl.us/_content/video/2b6cc087817427e5023156ffd7e94359.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
         
         <br><br>
         <p>
