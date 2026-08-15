@@ -53,17 +53,16 @@
 <div class="blk">
     <p><em>Tek's aEvlsaur.us Gaming Playlist of <a href="https://srx.aevl.net/search?q=tek+aevls+%23codm" target="_blank">#codm</a> </em></p>
     
-    <!-- This style block forces the iframe to be fluid and responsive -->
     <style>
         .video-wrapper {
             position: relative;
-            padding-bottom: 56.25%; /* Forces a 16:9 aspect ratio */
+            padding-bottom: 56.25%;
             height: 0;
             width: 100%; 
-            max-width: 800px; /* Adjust this if you want it wider/narrower */
-            margin: 20px auto; /* Centers the video */
-            border: 2px solid #333; /* Matches your site aesthetic */
-            border-radius: 8px; /* Optional: smooth corners */
+            max-width: 800px;
+            margin: 20px auto;
+            border: 2px solid #333;
+            border-radius: 8px;
             overflow: hidden;
         }
         .video-wrapper iframe {
@@ -77,8 +76,7 @@
     </style>
 
     <div class="video-wrapper">
-        <iframe id="latest-video-iframe" 
-                src="" 
+        <iframe src="https://www.youtube-nocookie.com/embed/live_stream?channel=UCjROy_mLDRADRNTm6cxSMmg" 
                 title="YouTube video player" 
                 referrerpolicy="strict-origin-when-cross-origin" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -86,20 +84,7 @@
         </iframe>
     </div>
 
-    <script>
-        // Fetches the latest video from your channel and updates the iframe
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=https://www.youtube.com/feeds/videos.xml?channel_id=UCjROy_mLDRADRNTm6cxSMmg')
-        .then(response => response.json())
-        .then(data => {
-            if (data.items && data.items.length > 0) {
-                const latestVideoId = data.items[0].guid.split(':').pop();
-                document.getElementById('latest-video-iframe').src = 'https://www.youtube-nocookie.com/embed/' + latestVideoId;
-            }
-        })
-        .catch(error => console.error('Error fetching latest video:', error));
-    </script>
-
-    <p><a href="https://www.youtube.com/user/pehden/videos" target="_blank">{ View on YouTube }</a></p>
+    <p><a href="https://www.youtube.com/channel/UCjROy_mLDRADRNTm6cxSMmg" target="_blank">{ View on YouTube }</a></p>
 </div>
 <!-- YOUTUBE EMBED ENDS HERE -->
         
