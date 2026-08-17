@@ -101,8 +101,8 @@
         const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&_=${cacheBuster}`);
         
         // Use a raw CORS proxy to read the XML natively
-        const proxyUrl = `https://api.allorigins.win/raw?url=${rssUrl}`;
-
+        const proxyUrl = `https://corsproxy.io/?${rssUrl}`;
+        
         // Fetch with no-store to prevent the browser from caching the request
         fetch(proxyUrl, { cache: "no-store" })
             .then(response => response.text())
