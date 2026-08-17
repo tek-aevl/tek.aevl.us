@@ -104,7 +104,8 @@
                 `https://api.allorigins.win/raw?url=${rssUrl}`,
                 `https://corsproxy.io/?${rssUrl}`,
                 `https://api.codetabs.com/v1/proxy?quest=${rssUrl}`
-            ];
+                `https://proxy.cors.sh/${rssUrl}`
+                ];
 
             for (const proxy of proxies) {
                 try {
