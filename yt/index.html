@@ -83,8 +83,9 @@
     </style>
 
     <div class="video-wrapper">
+        <!-- Default src ensures player works even if JS/Proxy fails entirely -->
         <iframe id="latest-video-iframe" 
-                src="" 
+                src="https://www.youtube-nocookie.com/embed?listType=playlist&list=UUjROy_mLDRADRNTm6cxSMmg" 
                 title="YouTube video player" 
                 referrerpolicy="strict-origin-when-cross-origin" 
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
@@ -93,26 +94,37 @@
     </div>
 
     <script>
-        // Generate a live timestamp to completely bust the cache
-        const cacheBuster = new Date().getTime();
-        const channelId = "UCjROy_mLDRADRNTm6cxSMmg";
-        
-        // Append timestamp to YouTube RSS URL to force a fresh pull
-        const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&_=${cacheBuster}`);
-        
-        // Use a raw CORS proxy to read the XML natively
-        const proxyUrl = `https://corsproxy.io/?${rssUrl}`;
-        
-        // Fetch with no-store to prevent the browser from caching the request
-        fetch(proxyUrl, { cache: "no-store" })
-            .then(response => response.text())
-            .then(str => new window.DOMParser().parseFromString(str, "text/xml"))
-            .then(data => {
-                // Dig into the XML and pull the absolute latest video ID
-                const videoId = data.getElementsByTagName("yt:videoId")[0].textContent;
-                document.getElementById('latest-video-iframe').src = `https://www.youtube-nocookie.com/embed/${videoId}`;
-            })
-            .catch(error => console.error('Error fetching fresh feed:', error));
+        (async function() {
+            const channelId = "UCjROy_mLDRADRNTm6cxSMmg";
+            const cacheBuster = new Date().getTime();
+            const rssUrl = encodeURIComponent(`https://www.youtube.com/feeds/videos.xml?channel_id=${channelId}&_=${cacheBuster}`);
+            
+            // Multiple proxies to cycle through in case one chokes
+            const proxies = [
+                `https://api.allorigins.win/raw?url=${rssUrl}`,
+                `https://corsproxy.io/?${rssUrl}`,
+                `https://api.codetabs.com/v1/proxy?quest=${rssUrl}`
+            ];
+
+            for (const proxy of proxies) {
+                try {
+                    const res = await fetch(proxy, { cache: "no-store" });
+                    if (!res.ok) continue;
+                    
+                    const text = await res.text();
+                    const xml = new DOMParser().parseFromString(text, "text/xml");
+                    const videoIdNode = xml.getElementsByTagName("yt:videoId")[0];
+                    
+                    if (videoIdNode && videoIdNode.textContent) {
+                        // Swap fallback playlist with the exact standalone video ID
+                        document.getElementById('latest-video-iframe').src = `https://www.youtube-nocookie.com/embed/${videoIdNode.textContent}`;
+                        break; // Stop checking proxies once successful
+                    }
+                } catch (e) {
+                    console.warn(`Proxy failed: ${proxy}`, e);
+                }
+            }
+        })();
     </script>
 
     <p><a href="https://www.youtube.com/channel/UCjROy_mLDRADRNTm6cxSMmg" target="_blank">{ View on YouTube }</a></p>
